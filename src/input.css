@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:wght@300;400;500;600&family=Sora:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-violet{
+background-color: #6347F9;
+color: white;
+}
+.button-white{
+    background-color: white;
+    color: #6347F9;
+    border: 1px;
+    border-color: #6347F9;
+    border-style: solid;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #FDF5F7;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .img-container:hover img {
+    transform: scale(1.2);
+    transition: transform 0.5s;
+  }
+  .img-container img {
+    transform: scale(1);
+    transition: transform 0.5s;
+    transition-delay: 0.1s;
+  }
+  .call-animation {
+    padding: 10px;
+    background-color: rgb(221,51,51);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .call-animation::before {
+    content: "";
+    position: absolute;
+    border: 1px solid rgb(221,51,51);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border-radius: 50%;
+    animation: pulse 1s linear infinite
+  }
+  
+  .call-animation::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgb(221,51,51);
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border-radius: 50%;
+    animation: pulse 1s linear infinite;
+    animation-delay: 0.3s
+  }  
+  @keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0
+    }
+  
+    50% {
+        transform: scale(1);
+        opacity: 1
+    }
+  
+    100% {
+        transform: scale(1.3);
+        opacity: 0
+    }
+  }
+
+
+  @keyframes complex-animation {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px) rotate(0deg) scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(0) rotate(360deg) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100px) rotate(720deg) scale(0);
+    }
+  }
+  
+  .complex-animation {
+    animation: complex-animation 3s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(-20deg);
+    }
+    100% {
+      transform: rotate(20deg);
+    }
+  }
+  
+  .spin-animation {
+    animation: spin 1s linear infinite alternate;   
+     }
+
+     @keyframes blink {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+    
+    .blink-animation {
+      animation: blink 1s step-end infinite;
+    }
+    .transform90 {
+      transform: rotate(-90deg);
+    }
+    .transform0 {
+      transform: rotate(90deg);
+    }
+
+
+  
