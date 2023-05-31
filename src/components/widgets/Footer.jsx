@@ -21,7 +21,7 @@ const Footer = () => {
           </h3>
           <div className="flex flex-col font-light text-[16px] font-poppins">
             <a href="/">Xe tải Sóc Trăng </a>
-            <a href="/">Dịch vụ xe tải Sóc Trăng </a>
+            <a href="/">Bán xe trả góp trả trước 25% giá trị xe </a>
           </div>
         </div>
         <div className="flex  flex-col items-center font-poppins ">
@@ -29,7 +29,7 @@ const Footer = () => {
             Thông tin liên hệ
           </h3>
           <div className="flex flex-col font-light text-[16px] font-poppins">
-            <a href="/">Xe Tải Chở Thuê Cần Thơ | Xe Tải Minh Trí</a>
+            <a href="/">Bán xe ISUZU/SUZUKI/SHINERAY Sóc Trăng</a>
             <a href="/">
               <strong>Địa chỉ:</strong> Quốc lộ 1A, ấp Phụng Hiệp, xã An Hiệp,
               huyện Châu Thành, tỉnh Sóc Trăng.

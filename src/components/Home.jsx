@@ -15,9 +15,9 @@ const Home = () => {
       <div>
         <Option text="Thùng mui bạc" type="muibat" />
         <Option text="Thùng kín" type="thungkin" />
-        {/*<Option text="Thùn lững" />
-    <Option text="Thùn ben" />
-    <Option text="Thùn cẩu" /> */}
+        <Option text="Thùn lững" />
+        <Option text="Thùn ben" />
+        <Option text="Thùn cẩu" />
       </div>
       {/* <div>
         <SecondFeatures />

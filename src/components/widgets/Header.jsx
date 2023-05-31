@@ -14,20 +14,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex z-10 fixed top-0 justify-between items-center h-[98px] w-full px-60 bg-[#FDF5F7]">
-      <div
-        className="text-[18px] font-lato font-normal hover:scale-105 duration-300 w-[440px]  items-center flex  flex-col "
-        onClick={() => handleClick()}
-      >
-        <img
-          className="w-1/2"
-          src="https://firebasestorage.googleapis.com/v0/b/isuzusuzukisoctrang.appspot.com/o/slider%2FLogo.jpg?alt=media&token=fd7ee9aa-71a9-4a66-b9f8-bb232f52097a&_gl=1*1oet3e6*_ga*MTA1MjQ5NTQ0OS4xNjg0NDAxMjc5*_ga_CW55HF8NVT*MTY4NTQwODM5Ni43LjEuMTY4NTQwODQxOC4wLjAuMA.."
-          alt="logo"
-        />
-
-        <h3 className="">Xe Tải ISUZU Cẩm Phong Sóc Trăng</h3>
-      </div>
-
+    <div className="flex z-10 fixed top-0 justify-end items-center h-[98px] w-full px-60 bg-[#FDF5F7]">
       <div className="flex flex-row items-center">
         <ul className=" flex flex-row font-poppins  w-[500px] justify-between relative">
           <Link to="Home" spy={true} smooth={true} duration={500}>
