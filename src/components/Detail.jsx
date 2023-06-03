@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { getDocumentById } from "../firebase/services";
+import { BiArrowBack } from "react-icons/bi";
 
 const Detail = () => {
   const navigate = useNavigate();
-
+  const [Data, setData] = useState();
   const { id } = useParams();
-  console.log(id);
+
+  useEffect(() => {
+    getDocumentById("Products", id)
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.log("Error getting collection data:", error);
+      });
+  }, []);
 
   const handlePost = () => {
     window.location.reload();
@@ -15,11 +26,22 @@ const Detail = () => {
   const handleClick = () => {
     window.location.href = "http://zalo.me/0939699629";
   };
+  const HandleExit = () => {
+    navigate(`/`);
+  };
 
   const style =
     "px-2 border-b-[1px] border-opacity-20 border-[#59431a] text-[13px] font-bold leading-[30px] text-[#59431a]    py-[5px]";
   return (
-    <div className="mt-[200px]">
+    <div className="mt-[130px]">
+      <div
+        className="mx-[400px] font-bold text-[25px] mb-7 flex items-center gap-2 hover:underline  cursor-pointer"
+        onClick={() => HandleExit()}
+      >
+        {" "}
+        <BiArrowBack />
+        <p>Quay về</p>
+      </div>
       <div className="mx-[400px] flex justify-between flex-row">
         <div className="w-[553px] ">
           <img
@@ -29,7 +51,7 @@ const Detail = () => {
         </div>
         <div className="w-[520px] ">
           <h3 className="font-semibold text-[24px] text-[#59431a] mb-[15px]">
-            XE ISUZU FRR90NE4 Thùng Mui bạt
+            {Data?.tenxe}
           </h3>
           <h2 className="font-semibold text-[24px] text-[#ff0000] mb-[10px]">
             Liên hệ
@@ -48,18 +70,7 @@ const Detail = () => {
               Thông số sản phẩm:
             </div>
             <div>
-              <div className="text-[13px] italic">
-                * Khoảng sáng gầm xe: 210 mm, Số chỗ ngồi: 03 Chỗ
-              </div>
-              <div className="text-[13px] italic">
-                * Chiều dài cơ sở: 4490mm, Trọng lượng bản thân: 3285kg
-              </div>
-              <div className="text-[13px] italic">
-                * Trọng lượng toàn bộ: 1100 kg, Tải trọng tối đa : 6400KG
-              </div>
-              <div className="text-[13px] italic">
-                * TCỡ lốp xe: Trước/Sau: 11.00R20/11.00R20
-              </div>
+              <div className="text-[13px] italic">{Data?.thongso}</div>
             </div>
           </div>
 
@@ -86,14 +97,15 @@ const Detail = () => {
                 Đặc tính kỹ thuật:{" "}
               </h3>
               <p className="mb-4 text-base">
-                Xe được nhập khẩu 100% Nhật Bản.
+                {/* Xe được nhập khẩu 100% Nhật Bản.
                 <br /> Động cơ ISUZU 4HK1E4S ,Phun nhiên liệu điện tử, tăng
                 áp-Làm mát bằng khí nạp.
                 <br /> Dung tích xi-lanh: 5.193 cc.
                 <br /> Công suất cực đại: 205kw/2600 vòng/phút <br /> Kiểu hộp
                 số: số sàn – 06 số tiến, 01 số lùi.
                 <br /> Mức tiêu hao nhiên liệu: 8.5 Lít/100km <br /> Dung tích
-                thùng nhiên liệu: 100 lít.
+                thùng nhiên liệu: 100 lít. */}
+                {Data?.kythuat}
               </p>
 
               <h3 className="text-[18px] font-semibold underline">
@@ -101,21 +113,23 @@ const Detail = () => {
                 Trang thiết bị theo tiêu chuẩn:{" "}
               </h3>
               <p className="mb-4 text-base">
-                Trang bị AM-FM, Radio. USB tùy chọn.
+                {/* Trang bị AM-FM, Radio. USB tùy chọn.
                 <br /> Đèn pha Halogen tăng cường khả năng chiếu sáng.
                 <br /> Kính chiếu hậu có góc quan sát rộng.
                 <br /> 01 bánh xe dự phòng, 01 bộ đồ nghề tiêu chuẩn, <br /> Hệ
                 thống lái: Trục vít- ê cu bi trợ lực thủy lực
                 <br /> Hệ thống phanh trước/ sau: Tang trống phanh dầu mạch kép
-                trợ lực chân không.
+                trợ lực chân không. */}
+                {Data?.trangthietbi}
               </p>
               <h3 className="text-[18px] font-semibold underline">
                 {" "}
                 Kích thước xe (mm):
               </h3>
               <p className="mb-4 text-base">
-                Kích thước tổng thể: 8420x2280x2530mm.
-                <br /> Kích thước thùng : 6680 x 2320 x 2060 mm.
+                {/* Kích thước tổng thể: 8420x2280x2530mm.
+                <br /> Kích thước thùng : 6680 x 2320 x 2060 mm. */}
+                {Data?.kichthuoc}
               </p>
 
               <h3 className="text-[18px] font-semibold underline">
@@ -123,32 +137,35 @@ const Detail = () => {
                 Thông số:
               </h3>
               <p className="mb-4 text-base">
-                Khoảng sáng gầm xe: 210 mm
+                {/* Khoảng sáng gầm xe: 210 mm
                 <br /> Chiều dài cơ sở: 4490mm
                 <br /> Trọng lượng toàn bộ: 1100 kg
                 <br /> Tải trọng tối đa : 6400KG
                 <br /> Trọng lượng bản thân: 3285kg
                 <br /> Số chỗ ngồi: 03 Chỗ <br />
-                Cỡ lốp xe: Trước/Sau: 11.00R20/11.00R20
+                Cỡ lốp xe: Trước/Sau: 11.00R20/11.00R20 */}
+                {Data?.thongso}
               </p>
               <h3 className="text-[18px] font-semibold ">
                 {" "}
-                Màu sơn: Màu trắng.
+                Màu sơn: {Data?.mauson}
               </h3>
 
               <h3 className="text-[18px] font-semibold underline"> Ghi chú</h3>
               <p className="mb-4 text-base">
-                Thông số kỹ thuật và trang bị theo tiêu chuẩn của công ty TNHH
+                {/* Thông số kỹ thuật và trang bị theo tiêu chuẩn của công ty TNHH
                 ISUZU Việt Nam
                 <br /> Giá bán trên đã bao gồm 10% thuế VAT và, không bao gồm
                 các chi phí khác như: lệ phí trước bạ, lệ phí đăng ký biển số,
-                lệ phí kiểm định lưu hành, bảo hiểm...
+                lệ phí kiểm định lưu hành, bảo hiểm... */}
+                {Data?.ghichu}
               </p>
 
               <h3 className="text-[18px] font-semibold underline">Bảo hành</h3>
               <p className="mb-4 text-base">
-                Xe được bảo hành 36 tháng hoặc 100.000km tùy theo điều kiện nào
-                đến kể từ ngày giao xe
+                {/* Xe được bảo hành 36 tháng hoặc 100.000km tùy theo điều kiện nào
+                đến kể từ ngày giao xe */}
+                {Data?.baohanh}
               </p>
               <h3 className="text-[18px] font-semibold underline">
                 Hiệu lực báo giá:

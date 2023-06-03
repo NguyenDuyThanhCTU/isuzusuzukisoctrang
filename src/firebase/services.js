@@ -1,5 +1,13 @@
 import { db } from "./config";
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  addDoc,
+  getDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  doc,
+} from "firebase/firestore";
 
 export const addDocument = async (Collection, data) => {
   try {
@@ -11,9 +19,9 @@ export const addDocument = async (Collection, data) => {
   }
 };
 
-export const getDocuments = async (Collection, type) => {
+export const getDocumentsByLoaiXe = async (Collection, type) => {
   try {
-    const q = query(collection(db, Collection), where("type", "==", type));
+    const q = query(collection(db, Collection), where("loaixe", "==", type));
     const querySnapshot = await getDocs(q);
     const data = [];
 
@@ -27,7 +35,38 @@ export const getDocuments = async (Collection, type) => {
   }
 };
 
+export const getDocumentById = async (Collection, id) => {
+  try {
+    const docRef = doc(collection(db, Collection), id);
+    const docSnapshot = await getDoc(docRef);
 
+    if (docSnapshot.exists()) {
+      return docSnapshot.data();
+    } else {
+      console.log("Document not found!");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error getting document: ", error);
+    return null;
+  }
+};
+
+export const getDocuments1 = async (Collection) => {
+  try {
+    const q = query(collection(db, Collection));
+    const querySnapshot = await getDocs(q);
+    const data = [];
+
+    querySnapshot.forEach((doc) => {
+      data.push({ id: doc.id, ...doc.data() });
+    });
+
+    return data;
+  } catch (error) {
+    console.error("Error get document: ", error);
+  }
+};
 
 // export const addDocument = (collection, data) => {
 //   const query = db.collection(collection);

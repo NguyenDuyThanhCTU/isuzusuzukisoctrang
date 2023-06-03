@@ -3,10 +3,12 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { data } from "../../../utils/ListTypeCar";
 import Input from "./Input/Input";
-import { Firestore } from "firebase/firestore";
+import { addDocument } from "../../../firebase/services";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getStorage } from "firebase/storage";
 
 const AddCar = ({ upload }) => {
-  const [image, setImage] = useState();
+  const [imageUrl, setImageUrl] = useState();
   const [Kythuat, setKythuat] = useState("");
   const [Trangthietbi, setTrangthietbi] = useState("");
   const [Kichthuoc, setKichthuoc] = useState("");
@@ -18,10 +20,9 @@ const AddCar = ({ upload }) => {
   const [Ghichu, setGhiChu] = useState("");
   const [Baohanh, setBaohanh] = useState("");
   const [error, setError] = useState(false);
-  const [imageAsset, setimageAsset] = useState(false);
 
   const handleDiscard = () => {
-    setImage("");
+    setImageUrl();
     setKythuat("");
     setTrangthietbi("");
     setKichthuoc("");
@@ -35,43 +36,45 @@ const AddCar = ({ upload }) => {
   };
 
   const HandleSubmit = () => {
-    const storageRef = Firestore.storage()
-      .ref()
-      .child("images/" + image.name);
-
-    storageRef
-      .put(selectedFile)
-      .then(function (snapshot) {
-        // Lấy URL của tệp tin đã tải lên
-        return snapshot.ref.getDownloadURL();
-      })
-      .then(function (downloadURL) {
-        console.log("URL của tệp tin đã tải lên:", downloadURL);
-      });
-
-    // const data = {
-    //   image: image,
-    //   Kythuat: Kythuat,
-    //   Trangthietbi: Trangthietbi,
-    //   Kichthuoc: Kichthuoc,
-    //   Thongso: Thongso,
-    //   Colop: Colop,
-    //   Loaixe: Loaixe,
-    //   Tenxe: Tenxe,
-    //   Mauson: Mauson,
-    //   Ghichu: Ghichu,
-    //   Baohanh: Baohanh,
-    // };
+    const data = {
+      hinhanh: imageUrl,
+      kythuat: Kythuat,
+      trangthietbi: Trangthietbi,
+      kichthuoc: Kichthuoc,
+      thongso: Thongso,
+      colop: Colop,
+      loaixe: Loaixe,
+      tenxe: Tenxe,
+      mauson: Mauson,
+      ghichu: Ghichu,
+      baohanh: Baohanh,
+    };
+    addDocument("Products", data).then(upload(false));
   };
 
   const uploadImage = async (e) => {
-    const selectImage = e.target.files[0];
+    let selectImage = e.target.files[0];
     const filetypes = ["image/jpeg", "image/jpg", "image/png"];
 
     if (filetypes.includes(selectImage.type)) {
-      setError(false);
-      setimageAsset(URL.createObjectURL(selectImage));
-      setImage(selectImage);
+      const storage = getStorage();
+      const storageRef = ref(storage, `sanpham/${selectImage.name}`);
+
+      uploadBytes(storageRef, selectImage)
+        .then((snapshot) => {
+          console.log("Uploaded a blob or file!");
+
+          getDownloadURL(snapshot.ref)
+            .then((url) => {
+              setImageUrl(url);
+            })
+            .catch((error) => {
+              console.error("Error getting download URL:", error);
+            });
+        })
+        .catch((error) => {
+          console.error("Error uploading file:", error);
+        });
     } else {
       setError(true);
     }
@@ -89,10 +92,10 @@ const AddCar = ({ upload }) => {
               </p>
             </div>
             <div className=" border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center  outline-none mt-10 w-[260px] h-[458px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
-              {imageAsset ? (
+              {imageUrl ? (
                 <div>
                   <img
-                    src={imageAsset}
+                    src={imageUrl}
                     className="w-[100%] h-[100%] object-cover"
                     alt=""
                   />

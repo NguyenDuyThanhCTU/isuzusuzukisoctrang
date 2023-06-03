@@ -6,18 +6,6 @@ import Button from "../Item/Button";
 import { addDocument, getDocuments } from "../../firebase/services";
 import { listSlides } from "../../utils/ListSlides";
 const Introduction = () => {
-  const handleFetch = () => {
-    // const DetailCars = {
-    //   id: "FRR90E4",
-    //   name: "XE ISUZU FRR90E4 Thùng kín",
-    //   image:
-    //     "https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/isuzusuzukisoctrang/thungkin5.png",
-    // };
-    // addDocument("DetailCars", car);
-    // const data = getDocuments("cars");
-    // setData(data);
-    // console.log(Data);
-  };
   return (
     <>
       <div className="mt-[180px] ml-[135px] mb-[78px] mr-[113px] flex flex-col items-center ">

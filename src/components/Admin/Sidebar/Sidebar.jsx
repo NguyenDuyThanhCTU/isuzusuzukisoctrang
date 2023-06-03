@@ -1,5 +1,6 @@
 import React from "react";
 import { BiLogOut } from "react-icons/bi";
+import { Link } from "react-router-dom";
 const Sidebar = () => {
   return (
     <div className="w-[350px] bg-black flex items-center flex-col justify-between h-[937px] text-white font-inter">
@@ -17,10 +18,12 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="mb-14 flex ">
-        <button className="py-3 px-28 bg-gray-700 rounded-lg">
-          <BiLogOut className="inline-block mr-2" />
-          Logout
-        </button>
+        <Link to="/">
+          <button className="py-3 px-28 bg-gray-700 rounded-lg">
+            <BiLogOut className="inline-block mr-2" />
+            Logout
+          </button>
+        </Link>
       </div>
     </div>
   );

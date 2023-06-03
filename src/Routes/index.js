@@ -7,6 +7,6 @@ import Login from "../components/Login/Login";
 export const AllRoutes = [
   { path: "/", component: Home },
   { path: "/post/:id", component: Detail },
-  { path: "/admin", component: Admin, Layout: EmptyLayout },
+  { path: "/adminQMR77HE4 ", component: Admin, Layout: EmptyLayout },
   { path: "/login", component: Login, Layout: EmptyLayout },
 ];

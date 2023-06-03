@@ -13,18 +13,12 @@ const Home = () => {
         <FirstFeatures />
       </div>
       <div>
-        <Option text="Thùng mui bạc" type="muibat" />
-        <Option text="Thùng kín" type="thungkin" />
-        <Option text="Thùn lững" />
-        <Option text="Thùn ben" />
-        <Option text="Thùn cẩu" />
+        <Option text="Thùng mui bạc" type="thùng mui bạt" />
+        <Option text="Thùng kín" type="thùng kín " />
+        <Option text="Thùng lững" type="Thùng lững" />
+        <Option text="Thùng chuyên dụng" type="thùng chuyên dụng" />
+        <Option text="Xe suzuki" type="xe suzuki" />
       </div>
-      {/* <div>
-        <SecondFeatures />
-      </div> */}
-      {/* <div className="">
-    <ThirdFeatures />
-  </div> */}
       <div id="secondFeatures">
         <FourthFeatures />
       </div>

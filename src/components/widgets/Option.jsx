@@ -4,15 +4,14 @@ import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { getDocuments } from "../../firebase/services";
+import { getDocumentsByLoaiXe } from "../../firebase/services";
 import ItemSecondFeatures from "../Item/ItemSecondFeatures";
 
 const Option = ({ text, type }) => {
   const [Data, setData] = useState(null);
 
   useEffect(() => {
-    const data = getDocuments("cars", type);
-    data
+    getDocumentsByLoaiXe("Products", type)
       .then((data) => {
         setData(data);
       })
@@ -20,7 +19,6 @@ const Option = ({ text, type }) => {
         console.log("Error getting collection data:", error);
       });
   }, []);
-  console.log(Data);
 
   return (
     <div className="mx-44 ">
@@ -53,8 +51,8 @@ const Option = ({ text, type }) => {
             >
               <div className="swiper-slide2  z-0 inline-block pb-5 ">
                 <ItemSecondFeatures
-                  nameItem={data.name}
-                  image={data.image}
+                  nameItem={data.tenxe}
+                  image={data.hinhanh}
                   id={data.id}
                 />
               </div>

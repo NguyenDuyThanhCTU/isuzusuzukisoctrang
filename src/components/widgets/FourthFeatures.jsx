@@ -11,40 +11,16 @@ import ItemFirstFeatures from "../Item/ItemFirstFeatures";
 const FourthFeatures = () => {
   const slides = [
     {
-      uid: "1aaaa",
-      name: "Xe tải cho thuê",
-      image:
-        "https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/xetaiminhtri/hom2.jpg",
+      uid: "id1",
+      url: "https://www.youtube.com/embed/KXu0F0sNDJM",
     },
     {
-      uid: "2bbbb",
-      name: "Xe tải cho thuê",
-      image:
-        "https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/xetaiminhtri/home1.jpg",
+      uid: "id1",
+      url: "https://www.youtube.com/embed/CD7CqidP86s",
     },
     {
-      uid: "3cccc",
-      name: "Xe tải cho thuê",
-      image:
-        "https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/xetaiminhtri/home4.jpg",
-    },
-    {
-      uid: "3caccc",
-      name: "Xe tải cho thuê",
-      image:
-        "https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/xetaiminhtri/img4.jpg",
-    },
-    {
-      uid: "5eeee",
-      name: "Xe tải cho thuê",
-      image:
-        "https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/xetaiminhtri/img5.jpg",
-    },
-    {
-      uid: "1aaasaaa",
-      name: "Xe tải cho thuê",
-      image:
-        "https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/xetaiminhtri/img6.jpg",
+      uid: "id1",
+      url: "https://www.youtube.com/embed/VpC1MrySar8",
     },
   ];
   return (
@@ -64,12 +40,9 @@ const FourthFeatures = () => {
           className="mySwiper"
         >
           {slides.map((data) => (
-            <SwiperSlide
-              key={data.uid}
-              //
-            >
+            <SwiperSlide key={data.uid}>
               <div className="swiper-slide2 max-w-[200px] h-[298px] inline-block z-0 ">
-                <ItemFirstFeatures nameItem={data.name} image={data.image} />
+                <ItemFirstFeatures url={data.url} />
               </div>
             </SwiperSlide>
           ))}
