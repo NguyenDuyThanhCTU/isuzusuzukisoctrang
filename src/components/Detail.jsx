@@ -35,21 +35,22 @@ const Detail = () => {
   return (
     <div className="mt-[130px]">
       <div
-        className="mx-[400px] font-bold text-[25px] mb-7 flex items-center gap-2 hover:underline  cursor-pointer"
+        className="desktop:mx-[400px] phone:mx-4 font-bold text-[25px] mb-7 flex items-center gap-2 hover:underline  cursor-pointer"
         onClick={() => HandleExit()}
       >
         {" "}
         <BiArrowBack />
         <p>Quay về</p>
       </div>
-      <div className="mx-[400px] flex justify-between flex-row">
-        <div className="w-[553px] ">
+      <div className="desktop:mx-[400px] phone:mx-4 flex justify-between phone:flex-col desktop:flex-row">
+        <div className="desktop:w-[553px] phone:w-full">
           <img
             src="https://ads-company-storage.s3.ap-southeast-2.amazonaws.com/isuzusuzukisoctrang/thungkin3.png"
             alt=""
           />
         </div>
-        <div className="w-[520px] ">
+
+        <div className="desktop:w-[520px] phone:w-full phone:flex desktop:block flex-col">
           <h3 className="font-semibold text-[24px] text-[#59431a] mb-[15px]">
             {Data?.tenxe}
           </h3>
@@ -84,7 +85,8 @@ const Detail = () => {
           </div>
         </div>
       </div>
-      <div className="mt-[50px] mx-[400px] flex justify-between">
+
+      <div className="mt-[50px] desktop:mx-[400px] phone:mx-4 phone:mb-10 flex justify-between">
         <div className="h-full w-full max-w-[826px] px-1 rounded-lg border-[1px] border-opacity-30  border-[#59431a] bg-white">
           <div className="mx-2 my-4">
             <h2 className="text-[#59431a] text-[22px] mt-[5px] font-semibold mb-4">
@@ -96,17 +98,7 @@ const Detail = () => {
                 {" "}
                 Đặc tính kỹ thuật:{" "}
               </h3>
-              <p className="mb-4 text-base">
-                {/* Xe được nhập khẩu 100% Nhật Bản.
-                <br /> Động cơ ISUZU 4HK1E4S ,Phun nhiên liệu điện tử, tăng
-                áp-Làm mát bằng khí nạp.
-                <br /> Dung tích xi-lanh: 5.193 cc.
-                <br /> Công suất cực đại: 205kw/2600 vòng/phút <br /> Kiểu hộp
-                số: số sàn – 06 số tiến, 01 số lùi.
-                <br /> Mức tiêu hao nhiên liệu: 8.5 Lít/100km <br /> Dung tích
-                thùng nhiên liệu: 100 lít. */}
-                {Data?.kythuat}
-              </p>
+              <p className="mb-4 text-base">{Data?.kythuat}</p>
 
               <h3 className="text-[18px] font-semibold underline">
                 {" "}
@@ -217,7 +209,7 @@ const Detail = () => {
           </div>
         </div>
 
-        <div className="flex flex-col">
+        <div className="desktop:flex flex-col phone:hidden">
           <div className="w-full max-w-[260px]  box-border mb-6">
             <h3 className="uppercase text-white bg-[#59431a] text-center text-[15px] font-semibold leading-[40px]">
               Danh mục sản phẩm

@@ -8,19 +8,19 @@ import { listSlides } from "../../utils/ListSlides";
 const Introduction = () => {
   return (
     <>
-      <div className="mt-[180px] ml-[135px] mb-[78px] mr-[113px] flex flex-col items-center ">
-        <div className="flex ">
-          <div className="h-[430px] w-[537px]">
-            <h2 className="font-sora font-bold text-[62px] leading-[72px] text-blue-600">
+      <div className="mt-[180px] ml-[135px] mb-[78px] mr-[113px] flex flex-col  items-center ">
+        <div className="flex phone:flex-col desktop:flex-row items-center ">
+          <div className="h-[430px] desktop:w-[537px] phone:w-screen phone:mb-10">
+            <h2 className="font-sora font-bold text-[62px] phone:text-[40px] leading-[72px] text-blue-600">
               Xe Tải ISUZU Cẩm Phong Sóc Trăng
             </h2>
-            <p className="font-poppins font-normal text-gray5a w-[486px] pt-[20px] ">
+            <p className="font-poppins font-normal text-gray5a desktop:w-[486px] pt-[20px] phone:w-screen">
               <strong> Chương trình khuyến mãi đặc biệt:</strong> giảm giá tiền
               mặt lên đến 30 triệu đồng, bảo hành 3 năm không giới hạn km và
               tặng 12 phiếu bảo dưỡng miễn phí. Liên hệ ngay để tận hưởng ưu đãi
               này!
             </p>
-            <p className="font-poppins font-normal text-gray5a w-[486px] pt-[20px] mb-[42px]">
+            <p className="font-poppins font-normal text-gray5a desktop:w-[486px] pt-[20px] mb-[42px] phone:w-screen">
               <strong>Dịch vụ:</strong> Lắp hộp đen, Định vị xe ôtô các loại,
               Bán bảo hiểm dân sự, Thân xe, ..
             </p>
@@ -30,7 +30,7 @@ const Introduction = () => {
               style="button-white h-[56px] w-[190px] hover:bg-gray-100"
             />
           </div>
-          <div className="w-[528px] h-[457px] ml-[127px] ">
+          <div className="desktop:w-[528px] desktop:h-[457px] desktop:ml-[127px] phone:mr-5 phone:w-[70vw] phone:h-[300px]">
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -54,8 +54,8 @@ const Introduction = () => {
             </Swiper>
           </div>
         </div>
-        <div className="mt-[150px] mb-[20px] w-[985px] h-[120px] flex justify-between items-center px-10 bg-[#FDFEFF] rounded-xl ">
-          <div className=" border-[1px] border-gray-200 flex items-start  flex-col p-4 rounded-lg">
+        <div className="desktop:mt-[150px] phone:mt-[50px] mb-[20px] desktop:w-[985px] h-[120px] flex justify-between items-center px-10 bg-[#FDFEFF] rounded-xl phone:flex-col phone:w-screen desktop:flex-row">
+          <div className=" border-[1px] border-gray-200 flex items-start  flex-col p-4 rounded-lg ">
             <p className="font-poppins font-light text-gray5a text-[18px]">
               Gọi ngay <strong> 0939 699 629</strong> (A Sĩ) để được hỗ trợ
               <strong> NHANH NHẤT CÓ THỂ</strong>.
@@ -69,7 +69,7 @@ const Introduction = () => {
 
           <Button
             text="Gọi ngay"
-            style="button-violet w-[194px] h-[72px] hover:bg-[#270bc9]"
+            style="button-violet w-[194px] desktop:h-[72px] hover:bg-[#270bc9] phone:mt-10 desktop:mt-0 phone:p-5"
           />
           {/* <button
             className="button-violet w-[194px] h-[72px] hover:bg-[#270bc9]"

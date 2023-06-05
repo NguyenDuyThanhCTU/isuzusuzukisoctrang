@@ -9,9 +9,9 @@ const FirstFeatures = () => {
     setClick((prev) => !prev);
   }
   return (
-    <div className=" px-44  bg-white flex flex-col items-center">
-      <div className="flex flex-col items-center mt-[39px] ">
-        <h3 className="font-poppins font-bold uppercase text-[44px] ">
+    <div className=" desktop:px-44 phone:px-4 bg-white flex flex-col items-center ">
+      <div className="flex flex-col items-center desktop:mt-[39px] phone:mt-24">
+        <h3 className="font-poppins font-bold uppercase desktop:text-[44px] phone:text-[33px]">
           CÁC LOẠI XE
         </h3>
         <p className="font-poppins font-normal text-[16px] max-w-[479px] text-center text-gray5a">

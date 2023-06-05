@@ -20,6 +20,11 @@ module.exports = {
         gray5a: "#434E5A",
       },
     },
+    screens: {
+      phone: "375px",
+      desktop: "1024px",
+    },
   },
+
   plugins: [],
 };

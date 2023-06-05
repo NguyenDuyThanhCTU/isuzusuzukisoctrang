@@ -14,7 +14,7 @@ const Home = () => {
       </div>
       <div>
         <Option text="Thùng mui bạc" type="thùng mui bạt" />
-        <Option text="Thùng kín" type="thùng kín " />
+        <Option text="Thùng kín" type="thùng kín" />
         <Option text="Thùng lững" type="Thùng lững" />
         <Option text="Thùng chuyên dụng" type="thùng chuyên dụng" />
         <Option text="Xe suzuki" type="xe suzuki" />

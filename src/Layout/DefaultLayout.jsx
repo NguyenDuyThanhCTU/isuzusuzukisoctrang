@@ -9,12 +9,12 @@ const DefaultLayout = ({ children }) => {
       <div id="Home">
         <Header />
       </div>
-      <div> {children}</div>
+      <div className="z-0"> {children}</div>
 
       <div id="subcription">
         <Subcription />
       </div>
-      <div className="fixed bottom-10 right-1 ">
+      <div className="fixed bottom-10 right-1 phone:bottom-24 z-10 phone:right-4">
         <Hotline />
       </div>
       <Footer />

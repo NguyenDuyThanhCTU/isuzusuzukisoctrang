@@ -5,7 +5,7 @@ const ItemFirstFeatures = ({ url }) => {
     <div className="h-[444px] w-[281px] flex flex-col items-center  cursor-pointer">
       <div className="h-[356px] w-[281px] relative img-container">
         <iframe
-          className=" rounded-md"
+          className=" rounded-md object-contain"
           width="560"
           height="315"
           src={url}

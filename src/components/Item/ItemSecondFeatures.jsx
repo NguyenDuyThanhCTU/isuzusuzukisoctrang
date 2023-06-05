@@ -12,7 +12,7 @@ function ItemSecondFeatures(props) {
       className="w-[360px] h-[450px] bg-[#FDF5F7] img-container  p-5 rounded-b-xl cursor-pointer "
       onClick={handleClick}
     >
-      <div className="w-[360px] h-[352px]   p-5">
+      <div className="desktop:w-[360px] desktop:h-[352px] phone:mr-5 phone:w-[70vw] phone:h-[300px]  p-5">
         <img
           className=" rounded-xl object-contain h-full"
           src={image}

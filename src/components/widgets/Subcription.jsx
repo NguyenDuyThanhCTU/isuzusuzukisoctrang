@@ -2,8 +2,8 @@ import React from "react";
 
 const Subcription = () => {
   return (
-    <div className="h-[273px] bg-white items-center flex justify-between px-96">
-      <div>
+    <div className="desktop:h-[273px] bg-white items-center flex justify-between desktop:px-96 phone:px-10">
+      <div className="phone:hidden">
         <h2 className="text-[48px] font-poppins font-semibold">
           Xe tải đa dạng
         </h2>
