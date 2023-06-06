@@ -18,11 +18,11 @@ const Header = () => {
             <button
               className={`${
                 click === 0 ? clickedStyle : clickStyle
-              } text-gray4a py-3 px-8 border-b border-blue-100  `}
+              } text-gray4a3 px-8  border-blue-100  `}
               onClick={() => setClick(0)}
             >
               Trang chủ
-            </button>{" "}
+            </button>
           </Link>
           <Link to="firstFeatures" spy={true} smooth={true} duration={500}>
             <button
@@ -89,6 +89,7 @@ const Header = () => {
             style="button-violet h-[50px] w-[154px] hover:bg-[#270bc9]"
           />
         </div>
+
         {isOpen && (
           <div className="absolute -bottom-[210px] left-0">
             <ul className=" flex flex-col font-poppins   justify-between relative bg-blue-50 border-blue-100 border">

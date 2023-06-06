@@ -1,7 +1,7 @@
 import React from "react";
 import { BiLogOut } from "react-icons/bi";
 import { Link } from "react-router-dom";
-const Sidebar = () => {
+const Sidebar = ({ click, option }) => {
   return (
     <div className="w-[350px] bg-black flex items-center flex-col justify-between h-[937px] text-white font-inter">
       <div className="mx-6 mt-12">
@@ -9,11 +9,25 @@ const Sidebar = () => {
           Xe tải ISUZU <br /> Cẩm phong Sóc Trăng
         </h3>
         <div className="flex flex-col gap-3 mt-11">
-          <button className="py-3 px-20 bg-blueAdmin rounded-lg">
-            Dashboard
+          <button
+            className={`py-3 px-20 ${
+              option === false
+                ? "bg-blueAdmin rounded-lg"
+                : "text-white rounded-lg"
+            }`}
+            onClick={() => click(false)}
+          >
+            Đơn hàng
           </button>
-          <button className="py-3 px-20 text-white rounded-lg">
-            Notification
+          <button
+            className={`py-3 px-20 ${
+              option === true
+                ? "bg-blueAdmin rounded-lg"
+                : "text-white rounded-lg"
+            }`}
+            onClick={() => click(true)}
+          >
+            Danh sách video
           </button>
         </div>
       </div>

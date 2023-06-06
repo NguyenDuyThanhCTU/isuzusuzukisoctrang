@@ -6,7 +6,7 @@ import AppProvider from "./Context/AppProvider";
 const App = () => {
   return (
     <Router>
-      {/* <AppProvider> */}{" "}
+      {/* <AppProvider> */}
       <Routes>
         {AllRoutes.map((route, index) => {
           let Layout = DefaultLayout;

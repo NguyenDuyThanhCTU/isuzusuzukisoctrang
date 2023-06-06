@@ -3,7 +3,7 @@ import { Autoplay } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Button from "../Item/Button";
-import { addDocument, getDocuments } from "../../firebase/services";
+
 import { listSlides } from "../../utils/ListSlides";
 const Introduction = () => {
   return (

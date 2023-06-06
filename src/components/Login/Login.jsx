@@ -8,8 +8,8 @@ import Loading from "./Loading/Loading";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  let EMAIL = "USER@GOOGLE.COM";
-  let PASSWORD = "USER123";
+  let EMAIL = "Admin";
+  let PASSWORD = "AdminIsuzusuzukisoctrang";
   const [Correct, setCorrect] = useState(false);
   const [Uncorrect, setUncorrect] = useState(false);
   const [Email, setEmail] = useState("");
@@ -21,29 +21,21 @@ const Login = () => {
   const navigate = useNavigate();
 
   const HandleLogin = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(Email)) {
-      setErrorMessage(true);
+    if (Email === EMAIL && Password === PASSWORD) {
+      setIsLoading(false);
+      setCorrect(true);
       setTimeout(() => {
-        setErrorMessage(false);
-      }, 2000);
+        setIsLoading(true);
+      }, 1000);
+      setTimeout(() => {
+        navigate("/admin");
+      }, 3000);
     } else {
-      if (Email === EMAIL && Password === PASSWORD) {
-        setIsLoading(false);
-        setCorrect(true);
-        setTimeout(() => {
-          setIsLoading(true);
-        }, 1000);
-        setTimeout(() => {
-          navigate("/admin");
-        }, 3000);
-      } else {
-        setIsLoading(false);
-        setUncorrect(true);
-        setTimeout(() => {
-          setUncorrect(false);
-        }, 2000);
-      }
+      setIsLoading(false);
+      setUncorrect(true);
+      setTimeout(() => {
+        setUncorrect(false);
+      }, 2000);
     }
   };
 
@@ -54,11 +46,11 @@ const Login = () => {
       <div className="w-[880px] h-[529px] absolute bg-white bottom-[25%] left-[30%] flex font-LexendDeca cursor-pointer rounded-sm ">
         <div className="flex-1 m-5 mt-8 mb-2 flex-col flex items-center justify-center  relative">
           <h3 className="text-colortopdownGray text-[20px] font-medium">
-            Người tìm việc
+            Người quản trị
           </h3>
 
           <h2 className="text-colortopdownGray text-[24px] font-semibold">
-            Đăng ký hoặc đăng nhập
+            Đăng nhập
           </h2>
           <div className="py-3 mb-4 text-[14px] w-full font-normal border hover:border-colorBlueBold text-center mt-4 rounded-lg ">
             <div className="hover:scale-125 duration-300">
@@ -84,7 +76,7 @@ const Login = () => {
 
           <div className="w-full mt-3  h-[89px] font-semibold text-[13px] ">
             <div className="mb-2">
-              Địa chỉ Email
+              Tài khoản
               <p className="text-red-700 inline-block ml-1">*</p>
             </div>
             <div className="w-full border rounded-lg mb-1">
@@ -96,7 +88,7 @@ const Login = () => {
             </div>
             {errorMessage && (
               <p className="text-red-600 font-normal  ml-2">
-                Định dạng email không hợp lệ !
+                Tài khoản không hợp lệ
               </p>
             )}
           </div>

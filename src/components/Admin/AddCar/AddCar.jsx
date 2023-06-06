@@ -7,7 +7,7 @@ import { addDocument } from "../../../firebase/services";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getStorage } from "firebase/storage";
 
-const AddCar = ({ upload }) => {
+const AddCar = ({ upload, loaixe }) => {
   const [imageUrl, setImageUrl] = useState();
   const [Kythuat, setKythuat] = useState("");
   const [Trangthietbi, setTrangthietbi] = useState("");

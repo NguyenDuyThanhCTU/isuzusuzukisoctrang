@@ -1,28 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import ItemFirstFeatures from "../Item/ItemFirstFeatures";
+import { getDocuments1 } from "../../firebase/services";
 
 // import required modules
 
 const FourthFeatures = () => {
-  const slides = [
-    {
-      uid: "id1",
-      url: "https://www.youtube.com/embed/KXu0F0sNDJM",
-    },
-    {
-      uid: "id1",
-      url: "https://www.youtube.com/embed/CD7CqidP86s",
-    },
-    {
-      uid: "id1",
-      url: "https://www.youtube.com/embed/VpC1MrySar8",
-    },
-  ];
+  const [Data, setData] = useState();
+  useEffect(() => {
+    getDocuments1("Videos")
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className="desktop:mx-44">
       <div>
@@ -33,16 +31,24 @@ const FourthFeatures = () => {
 
       <div className="bg-[#FDF5F7] mb-[50px] desktop:block phone:hidden">
         <Swiper
+          pagination={{
+            dynamicBullets: true,
+          }}
           slidesPerView={3}
           slidesPerGroup={3}
           spaceBetween={10}
           loop={true}
           className="mySwiper"
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay, Pagination]}
         >
-          {slides.map((data) => (
-            <SwiperSlide key={data.uid}>
+          {Data?.map((data) => (
+            <SwiperSlide>
               <div className="swiper-slide2 max-w-[200px] h-[298px] inline-block z-0 ">
-                <ItemFirstFeatures url={data.url} />
+                <ItemFirstFeatures url={data.video} />
               </div>
             </SwiperSlide>
           ))}
@@ -65,10 +71,10 @@ const FourthFeatures = () => {
           }}
           modules={[Autoplay, Pagination]}
         >
-          {slides.map((data) => (
-            <SwiperSlide key={data.uid}>
+          {Data?.map((data) => (
+            <SwiperSlide>
               <div className="swiper-slide2 flex mr-10  h-[298px]  z-0 ">
-                <ItemFirstFeatures url={data.url} />
+                <ItemFirstFeatures url={data.video} />
               </div>
             </SwiperSlide>
           ))}

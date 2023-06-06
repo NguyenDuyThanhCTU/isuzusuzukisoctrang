@@ -7,6 +7,7 @@ import {
   query,
   where,
   doc,
+  deleteDoc,
 } from "firebase/firestore";
 
 export const addDocument = async (Collection, data) => {
@@ -16,6 +17,21 @@ export const addDocument = async (Collection, data) => {
     console.log("Document written with ID: ", newDocument.id);
   } catch (error) {
     console.error("Error adding document: ", error);
+  }
+};
+
+export const deleteDocument = async (Collection, value, field) => {
+  try {
+    const querySnapshot = await getDocs(
+      query(collection(db, Collection), where(field, "==", value))
+    );
+
+    querySnapshot.forEach((document) => {
+      deleteDoc(doc(db, Collection, document.id));
+      console.log("Document deleted with ID: ", document.id);
+    });
+  } catch (error) {
+    console.error("Error deleting document: ", error);
   }
 };
 

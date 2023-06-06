@@ -7,6 +7,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.truncate {
+  white-space: nowrap; /* Ngăn chữ xuống dòng */
+  text-overflow: ellipsis; /* Hiển thị dấu "..." */
+  overflow: hidden; /* Ẩn chữ dư thừa */
+}
+
 .button-violet{
 background-color: #6347F9;
 color: white;

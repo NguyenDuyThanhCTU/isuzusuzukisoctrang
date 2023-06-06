@@ -7,7 +7,10 @@ import Login from "../components/Login/Login";
 export const AllRoutes = [
   { path: "/", component: Home },
   { path: "/post/:id", component: Detail },
-  { path: "/admin ", component: AdminPage, Layout: EmptyLayout },
-  { path: "/control ", component: AdminPage, Layout: EmptyLayout },
-  { path: "/login", component: AdminPage, Layout: EmptyLayout },
+  {
+    path: "/admin",
+    component: AdminPage,
+    Layout: EmptyLayout,
+  },
+  { path: "/login", component: Login, Layout: EmptyLayout },
 ];

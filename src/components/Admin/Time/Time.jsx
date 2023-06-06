@@ -1,17 +1,36 @@
 import React, { useState } from "react";
 import { AiOutlineUpload } from "react-icons/ai";
-const Time = ({ upload }) => {
+const Time = ({ upload, setLoaixe }) => {
   const [select, setSelect] = useState("");
-
   const style = "border py-3 hover:border-blue-400 uppercase";
   const Selected =
     "bg-blue-400 text-white py-3 uppercase border border-blue-900";
+
+  const HandleLoaiXe = (Option) => {
+    if (Option === 1) {
+      setSelect(1);
+      setLoaixe("Thùng lững");
+    } else if (Option === 2) {
+      setSelect(2);
+      setLoaixe("thùng mui bạt");
+    } else if (Option === 3) {
+      setSelect(3);
+      setLoaixe("thùng kín");
+    } else if (Option === 4) {
+      setSelect(4);
+      setLoaixe("thùng chuyên dụng");
+    } else if (Option === 5) {
+      setSelect(5);
+      setLoaixe("xe suzuki");
+    }
+  };
+
   return (
     <div className="w-[350px] bg-yelloAdmin flex items-center flex-col justify-between h-[937px] text-white font-inter">
       <div className="mx-6 mt-12">
         <div className="text-grayAdmin">
-          <h3 className="text-[38px] text-grayAdmin1">Chào buổi sáng !</h3>
-          <p className="text-[16px]">Ngày ...</p>
+          <h3 className="text-[38px] text-grayAdmin1">Trang quản trị</h3>
+          <p className="text-[16px]"></p>
         </div>
         <div className="mt-5 bg-white rounded-md ">
           <h3 className="text-center text-[20px] uppercase bg-blue-100 text-black py-7">
@@ -21,31 +40,35 @@ const Time = ({ upload }) => {
           <div className="text-black flex flex-col gap-1">
             <button
               className={`${select === 1 ? Selected : style}`}
-              onClick={() => setSelect(1)}
+              onClick={() => {
+                HandleLoaiXe(1);
+              }}
             >
               thùng lững
             </button>
             <button
               className={`${select === 2 ? Selected : style}`}
-              onClick={() => setSelect(2)}
+              onClick={() => {
+                HandleLoaiXe(2);
+              }}
             >
               thùng mui bạt
             </button>
             <button
               className={`${select === 3 ? Selected : style}`}
-              onClick={() => setSelect(3)}
+              onClick={() => HandleLoaiXe(3)}
             >
               thùng kín
             </button>
             <button
               className={`${select === 4 ? Selected : style}`}
-              onClick={() => setSelect(4)}
+              onClick={() => HandleLoaiXe(4)}
             >
               thùng chuyên dụng
             </button>
             <button
               className={`${select === 5 ? Selected : style}`}
-              onClick={() => setSelect(5)}
+              onClick={() => HandleLoaiXe(5)}
             >
               xe suzuki
             </button>
